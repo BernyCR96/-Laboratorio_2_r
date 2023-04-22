@@ -152,7 +152,7 @@ dep_delay y arr_delay, yluego divida por air_time
 
 ```{r}
 fligths_planes <-   flights %>% 
-  inner_join(planes, by = "tailnum") %>%
+  inner_join(planes, by = "tailnum" , suffix = c("_flights","_planes")) %>%
   transmute(tailnum, manufacturer, pi = (dep_delay + arr_delay) / air_time)
 
 fligths_planes
